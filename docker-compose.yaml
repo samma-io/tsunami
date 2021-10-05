@@ -1,0 +1,9 @@
+version: "3"
+services:
+  tsunami:
+    build: tsunami-security-scanner/.
+    image: sammascanner/tsunami:v0.1
+    volumes:
+      - ./:/scanner
+      - ./shared/:/shared/
+    command: --ip-v4-target=158.174.104.17 --scan-results-local-output-format=JSON --scan-results-local-output-filename=/shared/tsunami-output.json

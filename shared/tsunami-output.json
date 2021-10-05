@@ -1,0 +1,115 @@
+{
+  "scanStatus": "PARTIALLY_SUCCEEDED",
+  "scanStartTimestamp": "2021-10-05T09:21:43.457Z",
+  "scanDuration": "50.209s",
+  "fullDetectionReports": {
+  },
+  "statusMessage": "Failed plugins:\n/Philipp Durrer (durrer@google.com)/VULN_DETECTION/JoomlaRustyRCEDetector/0.1",
+  "reconnaissanceReport": {
+    "targetInfo": {
+      "networkEndpoints": [{
+        "type": "IP",
+        "ipAddress": {
+          "addressFamily": "IPV4",
+          "address": "158.174.104.17"
+        }
+      }]
+    },
+    "networkServices": [{
+      "networkEndpoint": {
+        "type": "IP_PORT",
+        "ipAddress": {
+          "addressFamily": "IPV4",
+          "address": "158.174.104.17"
+        },
+        "port": {
+          "portNumber": 53
+        }
+      },
+      "transportProtocol": "TCP",
+      "serviceName": "domain"
+    }, {
+      "networkEndpoint": {
+        "type": "IP_PORT",
+        "ipAddress": {
+          "addressFamily": "IPV4",
+          "address": "158.174.104.17"
+        },
+        "port": {
+          "portNumber": 80
+        }
+      },
+      "transportProtocol": "TCP",
+      "serviceName": "http",
+      "software": {
+        "name": "Golang net/http server"
+      }
+    }, {
+      "networkEndpoint": {
+        "type": "IP_PORT",
+        "ipAddress": {
+          "addressFamily": "IPV4",
+          "address": "158.174.104.17"
+        },
+        "port": {
+          "portNumber": 81
+        }
+      },
+      "transportProtocol": "TCP",
+      "serviceName": "http",
+      "software": {
+        "name": "nginx"
+      },
+      "serviceContext": {
+        "webServiceContext": {
+          "software": {
+            "name": "mantisbt"
+          },
+          "versionSet": {
+            "versions": [{
+              "type": "NORMAL",
+              "fullVersionString": "2.22.1"
+            }, {
+              "type": "NORMAL",
+              "fullVersionString": "2.24.3"
+            }, {
+              "type": "NORMAL",
+              "fullVersionString": "2.23.0"
+            }, {
+              "type": "NORMAL",
+              "fullVersionString": "2.24.1"
+            }, {
+              "type": "NORMAL",
+              "fullVersionString": "2.23.1"
+            }, {
+              "type": "NORMAL",
+              "fullVersionString": "2.24.0"
+            }, {
+              "type": "NORMAL",
+              "fullVersionString": "2.22.2"
+            }, {
+              "type": "NORMAL",
+              "fullVersionString": "2.24.2"
+            }]
+          }
+        }
+      }
+    }, {
+      "networkEndpoint": {
+        "type": "IP_PORT",
+        "ipAddress": {
+          "addressFamily": "IPV4",
+          "address": "158.174.104.17"
+        },
+        "port": {
+          "portNumber": 443
+        }
+      },
+      "transportProtocol": "TCP",
+      "serviceName": "ssl/http",
+      "software": {
+        "name": "Golang net/http server"
+      }
+    }]
+  }
+}
