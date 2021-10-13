@@ -3,7 +3,34 @@ services:
   tsunami:
     build: tsunami-security-scanner/.
     image: sammascanner/tsunami:v0.1
+    networks:
+      - samma
     volumes:
       - ./:/scanner
-      - ./shared/:/shared/
-    command: --ip-v4-target=158.174.104.17 --scan-results-local-output-format=JSON --scan-results-local-output-filename=/shared/tsunami-output.json
+      - ./out/:/out/
+    command: --ip-v4-target=158.174.104.17 --scan-results-local-output-format=JSON --scan-results-local-output-filename=/out/tsunami-output.json
+    #command: --ip-v4-target=158.174.104.17 --scan-results-local-output-format=JSON --scan-results-local-output-filename=/out/tsunami-output.json
+  samma-logger:
+    image: sammascanner/logger:0.1
+    networks:
+      - samma
+    volumes:
+      - ./out/:/out/
+    environment:
+      - FILE=tsunami-output.json
+      - PARSER=tsunami
+      - SAMMA_IO_SCANNER=domain
+      - SAMMA_IO_ID=g23dE222
+      - SAMMA_IO_TAGS=['scanner','prod']
+      - SAMMA_IO_JSON={"extra":"value"}
+      - WRITE_TO_FILE="true"
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.15.0
+    networks:
+      - samma
+    volumes:
+      - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - ./out:/out
+networks:
+  samma:
+    external: true
