@@ -131,5 +131,5 @@ Extra jason that will be passed to Elastic
 ```
 - WRITE_TO_FILE="true"
 ```
-
+ --
 Write the output to file this need to be activated if you use filebeat so send logs to Elasticsearch
